@@ -50,7 +50,7 @@ void fill_matrix(int **&matrix, int &x, int &y, int argc, char *argv[])
                 if (arg == false && (argv[1][z] >= '0' && argv[1][z] <= '9'))
                 {
                         matrix_size = argv[1][z];
-                        x = x * 10 + atoi(matrix_size.c_str());
+                        x = x * 10 + atoi(matrix_size.c_str());   // Конвертирует строку в стиле С++ в строку в стиле С.
                 }
                  else if (arg == true && (argv[1][z] >= '0' && argv[1][z] <= '9'))
                 {
