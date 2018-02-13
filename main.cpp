@@ -131,17 +131,35 @@ void multiply_matrix(int **&matrix, int &x, int &y)
                 cout << "matrix is empty" << endl;
                 return;
         }
-        string matrix_size;
+          string matrix_size;
         int x_m = 0;
         int y_m = 0;
+        int z = 0;
+        bool arg = false;
         cout << "please enter size matrix" << endl;
         cin >> matrix_size;
-        x_m = atoi(matrix_size.c_str());
-          if (matrix_size.find('x') != string::npos)
-                matrix_size.erase(0, matrix_size.find('x') + 1);
-        if (matrix_size.find('X') != string::npos)
-                matrix_size.erase(0, matrix_size.find('X') + 1);
-        y_m = atoi(matrix_size.c_str());
+
+          while (z < matrix_size.size())
+        {
+                if (matrix_size[z] == 'x' || matrix_size[z] == 'X')
+                {
+                        arg = true;
+                        
+                        z++;
+                }
+                if (arg == false && (matrix_size[z] >= '0' && matrix_size[z] <= '9'))
+                {
+                  
+                        x_m = x_m * 10 + atoi(matrix_size.c_str());   // Конвертирует строку в стиле С++ в строку в стиле С.
+                }
+                 else if (arg == true && (matrix_size[z] >= '0' && matrix_size[z] <= '9'))
+                {
+                   
+                        y_m = y_m * 10 + atoi(matrix_size.c_str());
+                }
+                z++;
+                 }
+        z = 0;
 
         if (y != x_m || y_m == 0)
         {
